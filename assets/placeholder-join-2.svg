@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="bg" x1="1" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#1a231e"/>
+      <stop offset="100%" stop-color="#2d3a30"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" rx="48" fill="url(#bg)"/>
+  <g opacity="0.25" stroke="#e1a84f" stroke-width="2">
+    <path d="M180 160h840"/>
+    <path d="M180 320h840"/>
+    <path d="M180 480h840"/>
+    <path d="M180 640h840"/>
+  </g>
+  <rect x="120" y="120" width="200" height="200" rx="28" fill="#e1a84f" opacity="0.2"/>
+  <rect x="900" y="420" width="180" height="180" rx="28" fill="#6fd3b9" opacity="0.18"/>
+  <text x="120" y="520" font-family="Space Grotesk, sans-serif" font-size="70" fill="#f4efe4">Step 2</text>
+  <text x="120" y="600" font-family="Space Grotesk, sans-serif" font-size="40" fill="#b9b2a3">Add the server</text>
+</svg>
