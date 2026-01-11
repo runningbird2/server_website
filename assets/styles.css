@@ -376,32 +376,10 @@ main {
     box-shadow: var(--shadow);
 }
 
-.policy-grid {
-    display: grid;
-    gap: 1.6rem;
-}
-
-.policy-block h2 {
-    margin: 0 0 0.75rem;
-    font-family: "Syne", "Space Grotesk", sans-serif;
-    font-size: 1.35rem;
-}
-
-.policy-block p,
-.policy-block li {
+.policy-text {
     color: var(--ink-muted);
-}
-
-.policy-list {
-    margin: 0;
-    padding-left: 1.2rem;
-    display: grid;
-    gap: 0.55rem;
-}
-
-.policy-list strong {
-    color: var(--ink);
-    font-weight: 600;
+    line-height: 1.7;
+    white-space: pre-line;
 }
 
 .list-panel {
