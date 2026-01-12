@@ -211,18 +211,24 @@
       };
 
       const setCopiedState = (target) => {
+        target.classList.remove('copied');
+        void target.offsetWidth;
         target.classList.add('copied');
         const hint = target.querySelector('.copy-hint');
         if (hint) {
           hint.textContent = 'Copied!';
         }
         target.setAttribute('title', 'Copied to clipboard');
-        setTimeout(() => {
+        if (target.copyTimeoutId) {
+          clearTimeout(target.copyTimeoutId);
+        }
+        target.copyTimeoutId = window.setTimeout(() => {
           target.classList.remove('copied');
           if (hint) {
             hint.textContent = 'Click to copy';
           }
           target.setAttribute('title', 'Click to copy');
+          target.copyTimeoutId = null;
         }, 1800);
       };
 

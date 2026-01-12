@@ -29,45 +29,61 @@
   <main id="main">
     <section class="section">
       <div class="panel policy-single">
-        <div class="policy-text">FabricCraft Privacy Policy
-Effective date: 11 January 2026
-This policy explains how FabricCraft ("we", "us") handles information when you use fabriccraft.net and the FabricCraft Minecraft server(s) (together, the "Services").
-What we collect
-We may collect:
-Support messages you send us (email address, message content, attachments).
-Website technical data processed by our providers (currently GitHub Pages and Cloudflare), such as IP address, device/browser information, referrer, and request timestamps (and similar security/operational logs).
-Minecraft server technical data such as username/UUID, IP address, connection/session timestamps, and other data needed to run and secure the server.
-In-server content and activity you generate (e.g., chat, private messages if used, commands, moderation reports, and other user content), plus relevant moderation/security events.
-If you don't provide the technical data required to run the Services (e.g., IP/UUID), you may not be able to access them.
-What we use it for
-We use information to:
-operate, maintain, and secure the Services
-provide support
-prevent abuse, investigate incidents, and enforce rules
-Legal bases (UK/EEA where applicable)
-We process personal data based on:
-legitimate interests (operating, securing, moderating, and supporting the Services)
-providing the service / performance of a contract where applicable
-legal obligations where required
-Service providers
-We use third-party providers to operate the Services (for example: website hosting, DNS/proxy and security services such as Cloudflare, server hosting/infrastructure providers, and email providers). These providers process information for service operation, security, and support.
-We don't sell personal data or share it for advertising.
-Cookies
-We don't intentionally use analytics or advertising cookies. Our providers may set strictly necessary cookies for security/operation. If we add non-essential cookies, we'll request consent where required.
-International transfers
-Some providers may process data outside the UK/EEA. Where required, we rely on appropriate safeguards (e.g., adequacy regulations or standard contractual clauses).
-Automated moderation/security
-We may use automated systems (e.g., anti-spam/anti-abuse) to protect the Services and enforce rules. You can contact us if you believe an action was made in error.
-Retention
-We keep information only as long as reasonably necessary for support, operations, security, moderation, and legal compliance.
-Your rights
-Depending on where you live, you may have rights to request access, correction, deletion, or restriction/objection, and to withdraw consent where applicable.
-To make a request: support@fabriccraft.net.
-UK/EEA users can complain to their data protection authority (UK: ICO).
-Changes
-We may update this policy by posting a new version and updating the effective date.
-Contact
-Privacy questions/requests: support@fabriccraft.net</div>
+        <div class="policy-text">
+          <h1>FabricCraft Privacy Policy</h1>
+          <p class="policy-meta">Effective date: 11 January 2026</p>
+          <p>This policy explains how FabricCraft ("we", "us") handles information when you use fabriccraft.net and the FabricCraft Minecraft server(s) (together, the "Services").</p>
+
+          <h2>What we collect</h2>
+          <ul>
+            <li>Support messages you send us (email address, message content, attachments).</li>
+            <li>Website technical data processed by our providers (currently GitHub Pages and Cloudflare), such as IP address, device/browser information, referrer, and request timestamps (and similar security/operational logs).</li>
+            <li>Minecraft server technical data such as username/UUID, IP address, connection/session timestamps, and other data needed to run and secure the server.</li>
+            <li>In-server content and activity you generate (e.g., chat, private messages if used, commands, moderation reports, and other user content), plus relevant moderation/security events.</li>
+          </ul>
+          <p>If you don't provide the technical data required to run the Services (e.g., IP/UUID), you may not be able to access them.</p>
+
+          <h2>What we use it for</h2>
+          <ul>
+            <li>Operate, maintain, and secure the Services.</li>
+            <li>Provide support.</li>
+            <li>Prevent abuse, investigate incidents, and enforce rules.</li>
+          </ul>
+
+          <h2>Legal bases (UK/EEA where applicable)</h2>
+          <ul>
+            <li>Legitimate interests (operating, securing, moderating, and supporting the Services).</li>
+            <li>Providing the service / performance of a contract where applicable.</li>
+            <li>Legal obligations where required.</li>
+          </ul>
+
+          <h2>Service providers</h2>
+          <p>We use third-party providers to operate the Services (for example: website hosting, DNS/proxy and security services such as Cloudflare, server hosting/infrastructure providers, and email providers). These providers process information for service operation, security, and support.</p>
+          <p>We don't sell personal data or share it for advertising.</p>
+
+          <h2>Cookies</h2>
+          <p>We don't intentionally use analytics or advertising cookies. Our providers may set strictly necessary cookies for security/operation. If we add non-essential cookies, we'll request consent where required.</p>
+
+          <h2>International transfers</h2>
+          <p>Some providers may process data outside the UK/EEA. Where required, we rely on appropriate safeguards (e.g., adequacy regulations or standard contractual clauses).</p>
+
+          <h2>Automated moderation/security</h2>
+          <p>We may use automated systems (e.g., anti-spam/anti-abuse) to protect the Services and enforce rules. You can contact us if you believe an action was made in error.</p>
+
+          <h2>Retention</h2>
+          <p>We keep information only as long as reasonably necessary for support, operations, security, moderation, and legal compliance.</p>
+
+          <h2>Your rights</h2>
+          <p>Depending on where you live, you may have rights to request access, correction, deletion, or restriction/objection, and to withdraw consent where applicable.</p>
+          <p>To make a request: <a href="mailto:support@fabriccraft.net">support@fabriccraft.net</a>.</p>
+          <p>UK/EEA users can complain to their data protection authority (UK: ICO).</p>
+
+          <h2>Changes</h2>
+          <p>We may update this policy by posting a new version and updating the effective date.</p>
+
+          <h2>Contact</h2>
+          <p>Privacy questions/requests: <a href="mailto:support@fabriccraft.net">support@fabriccraft.net</a>.</p>
+        </div>
       </div>
     </section>
   </main>
@@ -126,18 +142,24 @@ Privacy questions/requests: support@fabriccraft.net</div>
       };
 
       const setCopiedState = (target) => {
+        target.classList.remove('copied');
+        void target.offsetWidth;
         target.classList.add('copied');
         const hint = target.querySelector('.copy-hint');
         if (hint) {
           hint.textContent = 'Copied!';
         }
         target.setAttribute('title', 'Copied to clipboard');
-        setTimeout(() => {
+        if (target.copyTimeoutId) {
+          clearTimeout(target.copyTimeoutId);
+        }
+        target.copyTimeoutId = window.setTimeout(() => {
           target.classList.remove('copied');
           if (hint) {
             hint.textContent = 'Click to copy';
           }
           target.setAttribute('title', 'Click to copy');
+          target.copyTimeoutId = null;
         }, 1800);
       };
 

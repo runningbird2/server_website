@@ -236,6 +236,10 @@ main {
     cursor: pointer;
 }
 
+.copy-ip {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
 .copy-ip:focus-visible,
 .copy-inline:focus-visible {
     outline: 2px solid var(--accent-2);
@@ -245,7 +249,7 @@ main {
 .copy-inline {
     display: inline-block;
     border-bottom: 1px dashed rgba(225, 168, 79, 0.6);
-    transition: color 0.2s ease, border-color 0.2s ease;
+    transition: color 0.2s ease, border-color 0.2s ease, text-shadow 0.2s ease;
 }
 
 .copy-inline:hover {
@@ -262,11 +266,20 @@ main {
 
 .copy-ip.copied {
     border-color: rgba(111, 211, 185, 0.6);
-    box-shadow: 0 0 0 1px rgba(111, 211, 185, 0.3);
+    box-shadow: 0 0 0 1px rgba(111, 211, 185, 0.3), 0 0 18px rgba(111, 211, 185, 0.25);
+    background: rgba(111, 211, 185, 0.15);
+    animation: copyPop 0.6s ease;
 }
 
 .copy-ip.copied .copy-hint {
     color: var(--accent-2);
+}
+
+.copy-inline.copied {
+    color: var(--accent-2);
+    border-color: rgba(111, 211, 185, 0.75);
+    text-shadow: 0 0 16px rgba(111, 211, 185, 0.65);
+    animation: copyFlash 0.7s ease;
 }
 
 .hero-panel {
@@ -379,7 +392,42 @@ main {
 .policy-text {
     color: var(--ink-muted);
     line-height: 1.7;
-    white-space: pre-line;
+}
+
+.policy-text h1 {
+    font-family: "Syne", "Space Grotesk", sans-serif;
+    font-size: clamp(2rem, 3vw, 2.75rem);
+    margin: 0 0 0.6rem;
+    color: var(--ink);
+}
+
+.policy-text h2 {
+    font-family: "Syne", "Space Grotesk", sans-serif;
+    font-size: 1.2rem;
+    margin: 2rem 0 0.6rem;
+    color: var(--ink);
+}
+
+.policy-text p {
+    margin: 0 0 0.9rem;
+}
+
+.policy-text ul {
+    margin: 0 0 1.2rem;
+    padding-left: 1.2rem;
+    color: var(--ink-muted);
+}
+
+.policy-text li {
+    margin-bottom: 0.45rem;
+}
+
+.policy-meta {
+    margin: 0 0 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.75rem;
+    color: var(--ink-muted);
 }
 
 .list-panel {
@@ -544,6 +592,30 @@ main {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes copyPop {
+    0% {
+        transform: scale(1);
+    }
+    45% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes copyFlash {
+    0% {
+        text-shadow: 0 0 0 rgba(111, 211, 185, 0);
+    }
+    45% {
+        text-shadow: 0 0 18px rgba(111, 211, 185, 0.8);
+    }
+    100% {
+        text-shadow: 0 0 0 rgba(111, 211, 185, 0);
     }
 }
 
