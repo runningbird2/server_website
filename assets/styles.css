@@ -15,6 +15,7 @@
     --shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
     --radius: 22px;
     --max-width: 1120px;
+    --scroll-offset: clamp(5.5rem, 10vh, 8.5rem);
 }
 
 * {
@@ -23,6 +24,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: var(--scroll-offset);
 }
 
 body {
@@ -347,6 +349,10 @@ main {
     margin: 0 auto;
 }
 
+section[id] {
+    scroll-margin-top: var(--scroll-offset);
+}
+
 .section.alt {
     background: rgba(15, 20, 16, 0.65);
     border-top: 1px solid var(--stroke);
@@ -404,26 +410,26 @@ main {
 .policy-text h2 {
     font-family: "Syne", "Space Grotesk", sans-serif;
     font-size: 1.2rem;
-    margin: 2rem 0 0.6rem;
+    margin: 1.4rem 0 0.5rem;
     color: var(--ink);
 }
 
 .policy-text p {
-    margin: 0 0 0.9rem;
+    margin: 0 0 0.75rem;
 }
 
 .policy-text ul {
-    margin: 0 0 1.2rem;
+    margin: 0 0 0.9rem;
     padding-left: 1.2rem;
     color: var(--ink-muted);
 }
 
 .policy-text li {
-    margin-bottom: 0.45rem;
+    margin-bottom: 0.35rem;
 }
 
 .policy-meta {
-    margin: 0 0 1.4rem;
+    margin: 0 0 1rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     font-size: 0.75rem;
