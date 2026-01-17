@@ -39,9 +39,53 @@
             <span class="copy-hint" aria-live="polite">Click to copy</span>
           </div>
         </div>
+        <div class="quick-actions">
+          <a class="btn ghost" href="#rules">Read rules</a>
+          <a class="btn ghost" href="#store">Visit store</a>
+          <button class="btn ghost disabled" type="button" disabled>Discord (coming soon)</button>
+        </div>
       </div>
       <div class="hero-panel">
-        <div class="hero-card">
+        <div class="hero-card join-card" id="join">
+          <div class="join-header">
+            <p class="eyebrow">How to join</p>
+            <h2>Join in 3 steps</h2>
+            <p>Grab the IP, load Minecraft, and spawn in within minutes.</p>
+          </div>
+          <div class="join-carousel" data-carousel="join">
+            <div class="carousel-track">
+              <article class="step-card">
+                <img src="assets/placeholder-join-1.svg" alt="Placeholder for step one" loading="lazy">
+                <h3>1. Launch Minecraft</h3>
+                <p>Use the current vanilla client; the server runs Fabric but accepts vanilla connections.</p>
+              </article>
+              <article class="step-card">
+                <img src="assets/placeholder-join-2.svg" alt="Placeholder for step two" loading="lazy">
+                <h3>2. Add the server</h3>
+                <p>In Multiplayer, add <strong class="copy-inline" role="button" tabindex="0" data-copy="fabriccraft.net" aria-label="Copy server IP" title="Click to copy">fabriccraft.net</strong> and save it to your list.</p>
+              </article>
+              <article class="step-card">
+                <img src="assets/placeholder-join-3.svg" alt="Placeholder for step three" loading="lazy">
+                <h3>3. Spawn, scout, survive</h3>
+                <p>Gear up fast, explore the frontier, and decide who you can trust.</p>
+              </article>
+            </div>
+            <div class="carousel-controls">
+              <button class="carousel-btn" type="button" data-direction="prev" aria-label="Previous step">
+                <span aria-hidden="true">←</span> Prev
+              </button>
+              <div class="carousel-dots" role="tablist" aria-label="Join steps">
+                <button class="carousel-dot is-active" type="button" data-slide="0" aria-label="Go to step 1"></button>
+                <button class="carousel-dot" type="button" data-slide="1" aria-label="Go to step 2"></button>
+                <button class="carousel-dot" type="button" data-slide="2" aria-label="Go to step 3"></button>
+              </div>
+              <button class="carousel-btn" type="button" data-direction="next" aria-label="Next step">
+                Next <span aria-hidden="true">→</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="hero-card subtle">
           <h2>Server ethos</h2>
           <ul class="icon-list">
             <li>Minimal rules, maximum agency.</li>
@@ -73,30 +117,6 @@
           <p>Questions about supporter perks or billing? Reach out to <strong>support@fabriccraft.net</strong>.</p>
           <p class="muted">Official emails from us will come from <strong>fabriccraftmc@gmail.com</strong>.</p>
         </div>
-      </div>
-    </section>
-
-    <section class="section" id="join">
-      <div class="section-header">
-        <h2>How to Join</h2>
-        <p>Jump in within minutes. Grab the IP, load Minecraft, and settle wherever you can hold.</p>
-      </div>
-      <div class="join-steps">
-        <article class="step-card" style="animation-delay: 0.05s;">
-          <img src="assets/placeholder-join-1.svg" alt="Placeholder for step one" loading="lazy">
-          <h3>1. Launch Minecraft</h3>
-          <p>Use the current vanilla client; the server runs Fabric but accepts vanilla connections.</p>
-        </article>
-        <article class="step-card" style="animation-delay: 0.12s;">
-          <img src="assets/placeholder-join-2.svg" alt="Placeholder for step two" loading="lazy">
-          <h3>2. Add the server</h3>
-          <p>In Multiplayer, add <strong class="copy-inline" role="button" tabindex="0" data-copy="fabriccraft.net" aria-label="Copy server IP" title="Click to copy">fabriccraft.net</strong> and save it to your list.</p>
-        </article>
-        <article class="step-card" style="animation-delay: 0.18s;">
-          <img src="assets/placeholder-join-3.svg" alt="Placeholder for step three" loading="lazy">
-          <h3>3. Spawn, scout, survive</h3>
-          <p>Gear up fast, explore the frontier, and decide who you can trust.</p>
-        </article>
       </div>
     </section>
 
@@ -153,78 +173,154 @@
   <script>
     (() => {
       const copyTargets = document.querySelectorAll('[data-copy]');
-      if (!copyTargets.length) {
-        return;
-      }
-
-      const copyText = async (text) => {
-        try {
-          if (navigator.clipboard && window.isSecureContext) {
-            await navigator.clipboard.writeText(text);
-            return true;
+      if (copyTargets.length) {
+        const copyText = async (text) => {
+          try {
+            if (navigator.clipboard && window.isSecureContext) {
+              await navigator.clipboard.writeText(text);
+              return true;
+            }
+          } catch (error) {
+            return false;
           }
-        } catch (error) {
-          return false;
-        }
 
-        const textarea = document.createElement('textarea');
-        textarea.value = text;
-        textarea.style.position = 'fixed';
-        textarea.style.left = '-999px';
-        textarea.style.top = '-999px';
-        document.body.appendChild(textarea);
-        textarea.select();
+          const textarea = document.createElement('textarea');
+          textarea.value = text;
+          textarea.style.position = 'fixed';
+          textarea.style.left = '-999px';
+          textarea.style.top = '-999px';
+          document.body.appendChild(textarea);
+          textarea.select();
 
-        try {
-          return document.execCommand('copy');
-        } catch (error) {
-          return false;
-        } finally {
-          textarea.remove();
-        }
-      };
-
-      const setCopiedState = (target) => {
-        target.classList.remove('copied');
-        void target.offsetWidth;
-        target.classList.add('copied');
-        const hint = target.querySelector('.copy-hint');
-        if (hint) {
-          hint.textContent = 'Copied!';
-        }
-        target.setAttribute('title', 'Copied to clipboard');
-        if (target.copyTimeoutId) {
-          clearTimeout(target.copyTimeoutId);
-        }
-        target.copyTimeoutId = window.setTimeout(() => {
-          target.classList.remove('copied');
-          if (hint) {
-            hint.textContent = 'Click to copy';
-          }
-          target.setAttribute('title', 'Click to copy');
-          target.copyTimeoutId = null;
-        }, 1800);
-      };
-
-      copyTargets.forEach((target) => {
-        const text = target.getAttribute('data-copy');
-        const activate = async () => {
-          if (!text) {
-            return;
-          }
-          const success = await copyText(text);
-          if (success) {
-            setCopiedState(target);
+          try {
+            return document.execCommand('copy');
+          } catch (error) {
+            return false;
+          } finally {
+            textarea.remove();
           }
         };
 
-        target.addEventListener('click', activate);
-        target.addEventListener('keydown', (event) => {
-          if (event.key === 'Enter' || event.key === ' ') {
-            event.preventDefault();
-            activate();
+        const setCopiedState = (target) => {
+          target.classList.remove('copied');
+          void target.offsetWidth;
+          target.classList.add('copied');
+          const hint = target.querySelector('.copy-hint');
+          if (hint) {
+            hint.textContent = 'Copied!';
           }
+          target.setAttribute('title', 'Copied to clipboard');
+          if (target.copyTimeoutId) {
+            clearTimeout(target.copyTimeoutId);
+          }
+          target.copyTimeoutId = window.setTimeout(() => {
+            target.classList.remove('copied');
+            if (hint) {
+              hint.textContent = 'Click to copy';
+            }
+            target.setAttribute('title', 'Click to copy');
+            target.copyTimeoutId = null;
+          }, 1800);
+        };
+
+        copyTargets.forEach((target) => {
+          const text = target.getAttribute('data-copy');
+          const activate = async () => {
+            if (!text) {
+              return;
+            }
+            const success = await copyText(text);
+            if (success) {
+              setCopiedState(target);
+            }
+          };
+
+          target.addEventListener('click', activate);
+          target.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+              event.preventDefault();
+              activate();
+            }
+          });
         });
+      }
+
+      const carousels = document.querySelectorAll('[data-carousel]');
+      carousels.forEach((carousel) => {
+        const track = carousel.querySelector('.carousel-track');
+        if (!track) {
+          return;
+        }
+
+        const slides = Array.from(track.children);
+        const prevButton = carousel.querySelector('[data-direction="prev"]');
+        const nextButton = carousel.querySelector('[data-direction="next"]');
+        const dots = Array.from(carousel.querySelectorAll('.carousel-dot'));
+        let activeIndex = 0;
+        let rafId = null;
+
+        const updateDots = () => {
+          dots.forEach((dot, index) => {
+            if (index === activeIndex) {
+              dot.classList.add('is-active');
+              dot.setAttribute('aria-current', 'true');
+            } else {
+              dot.classList.remove('is-active');
+              dot.removeAttribute('aria-current');
+            }
+          });
+        };
+
+        const scrollToIndex = (index, behavior = 'smooth') => {
+          const clampedIndex = Math.max(0, Math.min(index, slides.length - 1));
+          const target = slides[clampedIndex];
+          if (!target) {
+            return;
+          }
+          activeIndex = clampedIndex;
+          track.scrollTo({ left: target.offsetLeft, behavior });
+          updateDots();
+        };
+
+        const handleScroll = () => {
+          if (rafId) {
+            return;
+          }
+          rafId = requestAnimationFrame(() => {
+            rafId = null;
+            let closestIndex = activeIndex;
+            let closestDistance = Infinity;
+            slides.forEach((slide, index) => {
+              const distance = Math.abs(slide.offsetLeft - track.scrollLeft);
+              if (distance < closestDistance) {
+                closestDistance = distance;
+                closestIndex = index;
+              }
+            });
+            if (closestIndex !== activeIndex) {
+              activeIndex = closestIndex;
+              updateDots();
+            }
+          });
+        };
+
+        if (prevButton) {
+          prevButton.addEventListener('click', () => scrollToIndex(activeIndex - 1));
+        }
+        if (nextButton) {
+          nextButton.addEventListener('click', () => scrollToIndex(activeIndex + 1));
+        }
+        dots.forEach((dot) => {
+          dot.addEventListener('click', () => {
+            const targetIndex = Number(dot.getAttribute('data-slide'));
+            if (!Number.isNaN(targetIndex)) {
+              scrollToIndex(targetIndex);
+            }
+          });
+        });
+        track.addEventListener('scroll', handleScroll, { passive: true });
+        window.addEventListener('resize', () => scrollToIndex(activeIndex, 'auto'));
+        updateDots();
       });
     })();
   </script>
