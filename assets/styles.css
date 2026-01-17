@@ -720,6 +720,7 @@ section[id] {
     border-radius: 14px;
     background: rgba(225, 168, 79, 0.12);
     border: 1px solid rgba(225, 168, 79, 0.25);
+    text-align: center;
 }
 
 .check-list {
