@@ -26,25 +26,73 @@
 
   <main id="main">
     <section class="hero" id="top">
-      <div class="hero-text">
-        <p class="eyebrow">Vanilla semi-anarchy survival</p>
-        <h1>Survive the wild. Write the story. Keep the rules light.</h1>
-        <p class="lead">FabricCraft is a raw, player-driven survival server running on Fabric for true vanilla mechanics. No world resets, no land claiming&#8212;just a persistent frontier where farms and contraptions work as intended.</p>
-        <div class="cta-row">
-          <a class="btn primary" href="#join">Join now</a>
-          <div class="ip-inline copy-ip" role="button" tabindex="0" data-copy="fabriccraft.net" aria-label="Copy server IP" title="Click to copy">
-            <span class="label">Server IP</span>
-            <span class="value">fabriccraft.net</span>
-            <span class="copy-hint" aria-live="polite">Click to copy</span>
+      <div class="hero-left">
+        <div class="hero-text">
+          <p class="eyebrow">Vanilla semi-anarchy survival</p>
+          <h1>Survive the wild. Write the story. Keep the rules light.</h1>
+          <p class="lead">FabricCraft is a raw, player-driven survival server running on Fabric for true vanilla mechanics. No world resets, no land claiming&#8212;just a persistent frontier where farms and contraptions work as intended.</p>
+          <div class="cta-row">
+            <a class="btn primary" href="#join">Join now</a>
+            <div class="ip-inline copy-ip" role="button" tabindex="0" data-copy="fabriccraft.net" aria-label="Copy server IP" title="Click to copy">
+              <span class="label">Server IP</span>
+              <span class="value">fabriccraft.net</span>
+              <span class="copy-hint" aria-live="polite">Click to copy</span>
+            </div>
+          </div>
+          <div class="quick-actions">
+            <button class="btn ghost disabled" type="button" disabled>Store (coming soon)</button>
+            <button class="btn ghost disabled" type="button" disabled>Discord (coming soon)</button>
           </div>
         </div>
-        <div class="quick-actions">
-          <button class="btn ghost disabled" type="button" disabled>Store (coming soon)</button>
-          <button class="btn ghost disabled" type="button" disabled>Discord (coming soon)</button>
+        <div class="hero-card join-card" id="join" data-join-card>
+          <div class="join-header">
+            <div>
+              <p class="eyebrow">How to join</p>
+              <h2>Join in 3 steps</h2>
+            </div>
+            <span class="join-indicator" data-join-indicator>Step 1 of 3</span>
+          </div>
+          <div class="join-body" data-join-body>
+            <article class="join-step is-active" data-join-step="0">
+              <img src="assets/placeholder-join-1.svg" alt="Placeholder for step one" loading="lazy">
+              <div>
+                <h3>1. Launch Minecraft</h3>
+                <p>Use the current vanilla client; the server runs Fabric but accepts vanilla connections.</p>
+              </div>
+            </article>
+            <article class="join-step" data-join-step="1">
+              <img src="assets/placeholder-join-2.svg" alt="Placeholder for step two" loading="lazy">
+              <div>
+                <h3>2. Add the server</h3>
+                <p>In Multiplayer, add <strong class="copy-inline" role="button" tabindex="0" data-copy="fabriccraft.net" aria-label="Copy server IP" title="Click to copy">fabriccraft.net</strong> and save it to your list.</p>
+              </div>
+            </article>
+            <article class="join-step" data-join-step="2">
+              <img src="assets/placeholder-join-3.svg" alt="Placeholder for step three" loading="lazy">
+              <div>
+                <h3>3. Spawn, scout, survive</h3>
+                <p>Gear up fast, explore the frontier, and decide who you can trust.</p>
+              </div>
+            </article>
+          </div>
+          <div class="join-controls">
+            <button class="carousel-btn" type="button" data-join-prev>Prev</button>
+            <button class="carousel-btn" type="button" data-join-next>Next</button>
+          </div>
         </div>
       </div>
       <div class="hero-panel" data-rules-panel>
         <div class="info-grid">
+          <div class="hero-card small-card card-store">
+            <p class="eyebrow">Store</p>
+            <h3>Coming soon</h3>
+            <p class="muted">Cosmetics-only, no pay-to-win.</p>
+          </div>
+          <div class="hero-card small-card card-discord">
+            <p class="eyebrow">Discord</p>
+            <h3>Coming soon</h3>
+            <p class="muted">Invite link drops soon.</p>
+          </div>
           <button class="hero-card rules-card card-rules" type="button" data-rules-open aria-expanded="false" aria-controls="rules">
             <p class="eyebrow">Rules</p>
             <h2>Know the rules</h2>
@@ -97,45 +145,6 @@
             <div class="rules-item">
               <h3>Respect staff in emergencies</h3>
               <p>Staff only steps in to keep the world stable. Disputes can be reviewed later.</p>
-            </div>
-          </div>
-        </div>
-        <div class="hero-card join-card" id="join">
-          <div class="join-header">
-            <p class="eyebrow">How to join</p>
-            <h2>Join in 3 steps</h2>
-            <p>Grab the IP, load Minecraft, and spawn in within minutes.</p>
-          </div>
-          <div class="join-carousel" data-carousel="join">
-            <div class="carousel-track">
-              <article class="step-card">
-                <img src="assets/placeholder-join-1.svg" alt="Placeholder for step one" loading="lazy">
-                <h3>1. Launch Minecraft</h3>
-                <p>Use the current vanilla client; the server runs Fabric but accepts vanilla connections.</p>
-              </article>
-              <article class="step-card">
-                <img src="assets/placeholder-join-2.svg" alt="Placeholder for step two" loading="lazy">
-                <h3>2. Add the server</h3>
-                <p>In Multiplayer, add <strong class="copy-inline" role="button" tabindex="0" data-copy="fabriccraft.net" aria-label="Copy server IP" title="Click to copy">fabriccraft.net</strong> and save it to your list.</p>
-              </article>
-              <article class="step-card">
-                <img src="assets/placeholder-join-3.svg" alt="Placeholder for step three" loading="lazy">
-                <h3>3. Spawn, scout, survive</h3>
-                <p>Gear up fast, explore the frontier, and decide who you can trust.</p>
-              </article>
-            </div>
-            <div class="carousel-controls">
-              <button class="carousel-btn" type="button" data-direction="prev" aria-label="Previous step">
-                <span aria-hidden="true">←</span> Prev
-              </button>
-              <div class="carousel-dots" role="tablist" aria-label="Join steps">
-                <button class="carousel-dot is-active" type="button" data-slide="0" aria-label="Go to step 1"></button>
-                <button class="carousel-dot" type="button" data-slide="1" aria-label="Go to step 2"></button>
-                <button class="carousel-dot" type="button" data-slide="2" aria-label="Go to step 3"></button>
-              </div>
-              <button class="carousel-btn" type="button" data-direction="next" aria-label="Next step">
-                Next <span aria-hidden="true">→</span>
-              </button>
             </div>
           </div>
         </div>
@@ -282,83 +291,42 @@
         syncRulesFromHash();
       }
 
-      const carousels = document.querySelectorAll('[data-carousel]');
-      carousels.forEach((carousel) => {
-        const track = carousel.querySelector('.carousel-track');
-        if (!track) {
-          return;
-        }
-
-        const slides = Array.from(track.children);
-        const prevButton = carousel.querySelector('[data-direction="prev"]');
-        const nextButton = carousel.querySelector('[data-direction="next"]');
-        const dots = Array.from(carousel.querySelectorAll('.carousel-dot'));
+      const joinCard = document.querySelector('[data-join-card]');
+      if (joinCard) {
+        const steps = Array.from(joinCard.querySelectorAll('[data-join-step]'));
+        const indicator = joinCard.querySelector('[data-join-indicator]');
+        const nextButton = joinCard.querySelector('[data-join-next]');
+        const prevButton = joinCard.querySelector('[data-join-prev]');
         let activeIndex = 0;
-        let rafId = null;
 
-        const updateDots = () => {
-          dots.forEach((dot, index) => {
-            if (index === activeIndex) {
-              dot.classList.add('is-active');
-              dot.setAttribute('aria-current', 'true');
+        const renderStep = (index) => {
+          const clampedIndex = ((index % steps.length) + steps.length) % steps.length;
+          steps.forEach((step, stepIndex) => {
+            if (stepIndex === clampedIndex) {
+              step.classList.add('is-active');
+              step.setAttribute('aria-hidden', 'false');
             } else {
-              dot.classList.remove('is-active');
-              dot.removeAttribute('aria-current');
+              step.classList.remove('is-active');
+              step.setAttribute('aria-hidden', 'true');
             }
           });
-        };
-
-        const scrollToIndex = (index, behavior = 'smooth') => {
-          const clampedIndex = Math.max(0, Math.min(index, slides.length - 1));
-          const target = slides[clampedIndex];
-          if (!target) {
-            return;
-          }
           activeIndex = clampedIndex;
-          track.scrollTo({ left: target.offsetLeft, behavior });
-          updateDots();
-        };
-
-        const handleScroll = () => {
-          if (rafId) {
-            return;
+          if (indicator) {
+            indicator.textContent = `Step ${activeIndex + 1} of ${steps.length}`;
           }
-          rafId = requestAnimationFrame(() => {
-            rafId = null;
-            let closestIndex = activeIndex;
-            let closestDistance = Infinity;
-            slides.forEach((slide, index) => {
-              const distance = Math.abs(slide.offsetLeft - track.scrollLeft);
-              if (distance < closestDistance) {
-                closestDistance = distance;
-                closestIndex = index;
-              }
-            });
-            if (closestIndex !== activeIndex) {
-              activeIndex = closestIndex;
-              updateDots();
-            }
-          });
+          joinCard.classList.remove('is-anim');
+          void joinCard.offsetWidth;
+          joinCard.classList.add('is-anim');
         };
 
-        if (prevButton) {
-          prevButton.addEventListener('click', () => scrollToIndex(activeIndex - 1));
-        }
         if (nextButton) {
-          nextButton.addEventListener('click', () => scrollToIndex(activeIndex + 1));
+          nextButton.addEventListener('click', () => renderStep(activeIndex + 1));
         }
-        dots.forEach((dot) => {
-          dot.addEventListener('click', () => {
-            const targetIndex = Number(dot.getAttribute('data-slide'));
-            if (!Number.isNaN(targetIndex)) {
-              scrollToIndex(targetIndex);
-            }
-          });
-        });
-        track.addEventListener('scroll', handleScroll, { passive: true });
-        window.addEventListener('resize', () => scrollToIndex(activeIndex, 'auto'));
-        updateDots();
-      });
+        if (prevButton) {
+          prevButton.addEventListener('click', () => renderStep(activeIndex - 1));
+        }
+        renderStep(activeIndex);
+      }
     })();
   </script>
 </body>
