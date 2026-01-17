@@ -267,6 +267,19 @@ main {
     user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.copy-ip *,
+.copy-inline * {
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.copy-ip:focus,
+.copy-inline:focus {
+    outline: none;
 }
 
 .copy-ip {
