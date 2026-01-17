@@ -18,7 +18,6 @@
   <header class="site-header">
     <a class="logo" href="#top">FabricCraft</a>
     <nav class="site-nav">
-      <a href="#store">Store</a>
       <a href="#join">How to Join</a>
       <a href="#rules">Rules</a>
     </nav>
@@ -40,12 +39,67 @@
           </div>
         </div>
         <div class="quick-actions">
-          <a class="btn ghost" href="#rules">Read rules</a>
-          <a class="btn ghost" href="#store">Visit store</a>
+          <button class="btn ghost disabled" type="button" disabled>Store (coming soon)</button>
           <button class="btn ghost disabled" type="button" disabled>Discord (coming soon)</button>
         </div>
       </div>
-      <div class="hero-panel">
+      <div class="hero-panel" data-rules-panel>
+        <div class="info-grid">
+          <button class="hero-card rules-card card-rules" type="button" data-rules-open aria-expanded="false" aria-controls="rules">
+            <p class="eyebrow">Rules</p>
+            <h2>Know the rules</h2>
+            <p>Keep it fierce, not toxic. Tap to see the full rules list.</p>
+            <span class="tag">Click to expand</span>
+          </button>
+          <div class="hero-card subtle card-ethos">
+            <h2>Server ethos</h2>
+            <ul class="icon-list">
+              <li>Minimal rules, maximum agency.</li>
+              <li>Player politics, raids, and alliances.</li>
+              <li>Persistent world with no resets.</li>
+              <li>No land claiming; control what you can defend.</li>
+              <li>Fabric keeps vanilla mechanics intact for farms and contraptions.</li>
+            </ul>
+          </div>
+          <div class="hero-card card-loop" id="stay-in-loop">
+            <p class="eyebrow">Support</p>
+            <h2>Stay in the loop</h2>
+            <p>Questions about supporter perks or billing? Reach out to <strong>support@fabriccraft.net</strong>.</p>
+            <p class="muted">Official emails from us will come from <strong>fabriccraftmc@gmail.com</strong>.</p>
+          </div>
+        </div>
+        <div class="rules-pane hero-card" id="rules" data-rules-pane aria-hidden="true">
+          <div class="rules-pane-header">
+            <div>
+              <p class="eyebrow">Rules</p>
+              <h2>Full rules</h2>
+              <p class="muted">Keep it fierce, not toxic. These protect the community while preserving the risk.</p>
+            </div>
+            <button class="btn ghost rules-close" type="button" data-rules-close>Close</button>
+          </div>
+          <div class="rules-list">
+            <div class="rules-item">
+              <h3>No hacked clients</h3>
+              <p>Any client or mod that grants unfair advantages is banned. Freecam is allowed.</p>
+            </div>
+            <div class="rules-item">
+              <h3>Griefing allowed, spawn is protected</h3>
+              <p>Raids and destruction are part of the game, but no spawn griefing for the sake of griefing (lavacasts included).</p>
+            </div>
+            <div class="rules-item">
+              <h3>No exploits or server sabotage</h3>
+              <p>Dupes, lag machines, and crash attempts that destabilize the server are removed.</p>
+            </div>
+            <div class="rules-item">
+              <h3>No doxxing or targeted harassment</h3>
+              <p>Threats, hate speech, and real-world harassment are banned.</p>
+            </div>
+            <div class="rules-item">
+              <h3>Respect staff in emergencies</h3>
+              <p>Staff only steps in to keep the world stable. Disputes can be reviewed later.</p>
+            </div>
+          </div>
+        </div>
         <div class="hero-card join-card" id="join">
           <div class="join-header">
             <p class="eyebrow">How to join</p>
@@ -85,70 +139,8 @@
             </div>
           </div>
         </div>
-        <div class="hero-card subtle">
-          <h2>Server ethos</h2>
-          <ul class="icon-list">
-            <li>Minimal rules, maximum agency.</li>
-            <li>Player politics, raids, and alliances.</li>
-            <li>Persistent world with no resets.</li>
-            <li>No land claiming; control what you can defend.</li>
-            <li>Fabric keeps vanilla mechanics intact for farms and contraptions.</li>
-          </ul>
-        </div>
       </div>
     </section>
-
-    <section class="section alt" id="store">
-      <div class="section-header">
-        <h2>Store</h2>
-        <p>Support the server and unlock cosmetics once the storefront goes live.</p>
-      </div>
-      <div class="store-grid">
-        <div class="store-card">
-          <img src="assets/placeholder-store.svg" alt="Storefront coming soon" loading="lazy">
-          <div>
-            <h3>Coming soon</h3>
-            <p>We are setting up a fair, cosmetics-only store. Check back for perks that keep the gameplay balanced.</p>
-            <span class="tag">No pay-to-win</span>
-          </div>
-        </div>
-        <div class="store-card outline">
-          <h3>Stay in the loop</h3>
-          <p>Questions about supporter perks or billing? Reach out to <strong>support@fabriccraft.net</strong>.</p>
-          <p class="muted">Official emails from us will come from <strong>fabriccraftmc@gmail.com</strong>.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section alt" id="rules">
-      <div class="section-header">
-        <h2>Rules</h2>
-        <p>Keep it fierce, not toxic. These rules protect the community while preserving the risk.</p>
-      </div>
-      <div class="rules-grid">
-        <div class="rule-card">
-          <h3>No hacked clients</h3>
-          <p>Any client or mod that grants unfair advantages is banned. Freecam is allowed.</p>
-        </div>
-        <div class="rule-card">
-          <h3>Griefing allowed, spawn is protected</h3>
-          <p>Raids and destruction are part of the game, but no spawn griefing for the sake of griefing (lavacasts included).</p>
-        </div>
-        <div class="rule-card">
-          <h3>No exploits or server sabotage</h3>
-          <p>Dupes, lag machines, and crash attempts that destabilize the server are removed.</p>
-        </div>
-        <div class="rule-card">
-          <h3>No doxxing or targeted harassment</h3>
-          <p>Threats, hate speech, and real-world harassment are banned.</p>
-        </div>
-        <div class="rule-card">
-          <h3>Respect staff in emergencies</h3>
-          <p>Staff only steps in to keep the world stable. Disputes can be reviewed later.</p>
-        </div>
-      </div>
-    </section>
-
   </main>
 
   <footer class="site-footer">
@@ -163,7 +155,6 @@
     </div>
     <div>
       <p class="footer-title">Quick links</p>
-      <a href="#store">Store</a>
       <a href="#join">How to Join</a>
       <a href="#rules">Rules</a>
       <a href="privacy/">Privacy</a>
@@ -243,6 +234,52 @@
             }
           });
         });
+      }
+
+      const rulesPanel = document.querySelector('[data-rules-panel]');
+      if (rulesPanel) {
+        const rulesOpen = rulesPanel.querySelector('[data-rules-open]');
+        const rulesClose = rulesPanel.querySelector('[data-rules-close]');
+        const rulesPane = rulesPanel.querySelector('[data-rules-pane]');
+
+        const openRules = () => {
+          rulesPanel.classList.add('show-rules');
+          if (rulesPane) {
+            rulesPane.setAttribute('aria-hidden', 'false');
+          }
+          if (rulesOpen) {
+            rulesOpen.setAttribute('aria-expanded', 'true');
+          }
+        };
+
+        const closeRules = () => {
+          rulesPanel.classList.remove('show-rules');
+          if (rulesPane) {
+            rulesPane.setAttribute('aria-hidden', 'true');
+          }
+          if (rulesOpen) {
+            rulesOpen.setAttribute('aria-expanded', 'false');
+          }
+        };
+
+        if (rulesOpen) {
+          rulesOpen.addEventListener('click', openRules);
+        }
+        if (rulesClose) {
+          rulesClose.addEventListener('click', closeRules);
+        }
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape' && rulesPanel.classList.contains('show-rules')) {
+            closeRules();
+          }
+        });
+        const syncRulesFromHash = () => {
+          if (window.location.hash === '#rules') {
+            openRules();
+          }
+        };
+        window.addEventListener('hashchange', syncRulesFromHash);
+        syncRulesFromHash();
       }
 
       const carousels = document.querySelectorAll('[data-carousel]');
