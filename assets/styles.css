@@ -153,6 +153,9 @@ main {
 .hero {
     display: grid;
     grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    grid-template-areas:
+        "text panel"
+        "join panel";
     gap: 2.5rem;
     align-items: start;
     padding: 3.5rem 2.5rem 3rem;
@@ -160,9 +163,8 @@ main {
     margin: 0 auto;
 }
 
-.hero-left {
-    display: grid;
-    gap: 1.5rem;
+.hero-text {
+    grid-area: text;
 }
 
 .eyebrow {
@@ -176,9 +178,9 @@ main {
 .hero h1 {
     font-family: "Syne", "Space Grotesk", sans-serif;
     font-size: clamp(2.5rem, 4vw, 4.5rem);
-    line-height: 1.1;
+    line-height: 1.15;
     margin: 0 0 1.25rem;
-    padding-bottom: 0.08em;
+    padding-bottom: 0;
 }
 
 .lead {
@@ -262,6 +264,9 @@ main {
 .copy-ip,
 .copy-inline {
     cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 .copy-ip {
@@ -313,6 +318,7 @@ main {
 .hero-panel {
     display: grid;
     gap: 0;
+    grid-area: panel;
 }
 
 .hero-card {
@@ -478,6 +484,7 @@ main {
 .hero-card.join-card {
     display: grid;
     gap: 1.2rem;
+    grid-area: join;
 }
 
 .join-header {
@@ -865,6 +872,10 @@ section[id] {
 
     .hero {
         grid-template-columns: 1fr;
+        grid-template-areas:
+            "text"
+            "panel"
+            "join";
     }
 
     .join-header {
