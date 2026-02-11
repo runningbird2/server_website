@@ -410,6 +410,7 @@ main {
 }
 
 .rules-card {
+    display: block;
     text-align: left;
     width: 100%;
     color: inherit;
@@ -420,6 +421,7 @@ main {
 }
 
 .rules-card:hover {
+    color: inherit;
     border-color: rgba(225, 168, 79, 0.55);
     box-shadow: 0 18px 38px rgba(0, 0, 0, 0.35);
     transform: translateY(-2px);
